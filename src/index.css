@@ -1,0 +1,176 @@
+/* Import Montserrat instead of Inter */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Montserrat', system-ui, sans-serif;
+  }
+
+  body {
+    @apply antialiased bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 text-gray-900;
+    background-attachment: fixed;
+  }
+}
+
+/* Typography */
+@layer components {
+  .prose {
+    @apply text-gray-800;
+  }
+
+  .prose h1, .prose h2, .prose h3, .prose h4 {
+    @apply text-gray-900 font-bold tracking-tight;
+  }
+
+  .prose p {
+    @apply mb-4 leading-relaxed text-gray-700;
+  }
+
+  .prose ul {
+    @apply list-disc list-inside mb-4 space-y-1;
+  }
+
+  .prose ol {
+    @apply list-decimal list-inside mb-4 space-y-1;
+  }
+
+  .prose strong {
+    @apply font-semibold text-gray-900;
+  }
+
+  .prose em {
+    @apply italic;
+  }
+
+  .prose code {
+    @apply bg-gray-900 text-pink-400 px-1.5 py-0.5 rounded text-sm font-mono;
+  }
+
+  .prose pre {
+    @apply bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto;
+  }
+
+  .prose blockquote {
+    @apply border-l-4 border-pink-400 pl-4 italic text-gray-200;
+  }
+}
+
+/* Utilities */
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .bg-gradient-radial {
+    background: radial-gradient(circle at center, var(--tw-gradient-stops));
+  }
+
+  .text-shadow {
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+  }
+
+  .backdrop-blur-glass {
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.1);
+    @apply rounded-2xl border border-white/20 shadow-lg;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.85; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200px 0; }
+  100% { background-position: calc(200px + 100%) 0; }
+}
+
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-pulse-soft { animation: pulse-soft 2s ease-in-out infinite; }
+.animate-shimmer {
+  animation: shimmer 2s linear infinite;
+  background: linear-gradient(110deg, #ffffff1a 45%, #ffffff33 50%, #ffffff1a 55%);
+  background-size: 200px 100%;
+}
+
+/* Buttons */
+button {
+  @apply transition-all duration-300 ease-in-out px-6 py-2 rounded-xl font-semibold shadow-md text-white bg-gradient-to-r from-indigo-500 to-pink-500;
+}
+
+button:hover {
+  @apply scale-105 shadow-lg;
+}
+
+button:active {
+  @apply scale-95;
+}
+
+/* Fancy border + card shadows */
+.border-gradient {
+  border: 1px solid transparent;
+  background: linear-gradient(#fff, #fff) padding-box,
+              linear-gradient(135deg, #6366f1, #ec4899) border-box;
+  border-radius: 1rem;
+}
+
+.shadow-soft {
+  box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.15);
+}
+
+.shadow-glow {
+  box-shadow: 0 0 25px -5px rgba(139, 92, 246, 0.4);
+}
+
+/* Skeleton loading */
+.skeleton {
+  @apply animate-pulse bg-gray-300 rounded;
+}
+.skeleton-text {
+  @apply h-4 bg-gray-300 rounded animate-pulse;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes meteor {
+  0% {
+    transform: translateY(0) translateX(0) rotate(25deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) translateX(50px) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+.animate-meteor {
+  animation: meteor linear infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
